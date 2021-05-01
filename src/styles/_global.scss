@@ -1,0 +1,23 @@
+@use "variables";
+
+body {
+  background-color: variables.$bg;
+  color: var(--text);
+  font-size: 26px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1,
+h2 {
+  text-align: center;
+}
+
+img {
+  max-width: 100px;
+  height: auto;
+}

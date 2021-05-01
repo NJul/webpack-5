@@ -27,3 +27,7 @@ npm i css-loader ~~style-loader~~ --save-dev
 npm i cross-env --save-dev
 
 npm i mini-css-extract-plugin --save-dev
+
+npm i sass sass-loader --save-dev
+
+npm i postcss postcss-preset-env postcss-loader --save-dev
