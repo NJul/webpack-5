@@ -5,3 +5,8 @@ body {
 h1 {
   text-align: center;
 }
+
+img {
+  max-width: 100px;
+  height: auto;
+}
