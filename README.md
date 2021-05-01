@@ -23,3 +23,5 @@ npm i css-loader style-loader --save-dev
 > npm install gh-pages --save-dev
 
 > npm run deploy
+
+npm i cross-env --save-dev

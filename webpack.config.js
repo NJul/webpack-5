@@ -1,20 +1,27 @@
 const path = require('path');
-const HtmlWebpacPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+let mode = 'development';
+
+if (process.env.NODE_ENV === 'production') {
+  mode = 'production';
+}
 
 module.exports = {
+  // mode defaults to 'production' if not set
+  mode: mode,
+
+  // entry not required if using `src/index.js` default
   entry: {
     main: path.resolve(__dirname, './src/index.js'),
   },
+  // output not required if using `dist/main.js` default
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
   },
-  devServer: {
-    contentBase: './dist',
-    open: true,
-  },
   plugins: [
-    new HtmlWebpacPlugin({
+    new HtmlWebpackPlugin({
       title: 'Webpack tutorial',
     }),
   ],
@@ -39,5 +46,13 @@ module.exports = {
         type: 'asset/resource',
       },
     ],
+  },
+
+  // devtool: 'source-map',
+  devtool: false,
+
+  devServer: {
+    contentBase: './dist',
+    open: true,
   },
 };
