@@ -12,6 +12,9 @@
   "author": "NJul",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.14.0",
+    "@babel/preset-env": "^7.14.0",
+    "babel-loader": "^8.2.2",
     "html-webpack-plugin": "^5.3.1",
     "webpack": "^5.36.2",
     "webpack-cli": "^4.6.0",
