@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 let mode = 'development';
 
@@ -20,13 +21,13 @@ module.exports = {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      title: 'Webpack tutorial',
-    }),
-  ],
+
   module: {
     rules: [
+      {
+        test: /\.css$/i,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -38,15 +39,18 @@ module.exports = {
         },
       },
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
-      },
-      {
         test: /\.(gif|png|jpg|jpeg|svg)$/i,
         type: 'asset/resource',
       },
     ],
   },
+
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'Webpack tutorial',
+    }),
+    new MiniCssExtractPlugin(),
+  ],
 
   // devtool: 'source-map',
   devtool: false,
@@ -54,5 +58,6 @@ module.exports = {
   devServer: {
     contentBase: './dist',
     open: true,
+    hot: true,
   },
 };
