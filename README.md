@@ -15,3 +15,5 @@ npm i html-webpack-plugin --save-dev
 npm i webpack-dev-server --save-dev
 
 npm i babel-loader @babel/core @babel/preset-env --save-dev
+
+npm i css-loader style-loader --save-dev
