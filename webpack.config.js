@@ -3,14 +3,17 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 let mode = 'development';
+let target = 'web';
 
 if (process.env.NODE_ENV === 'production') {
   mode = 'production';
+  target = 'browserslist';
 }
 
 module.exports = {
   // mode defaults to 'production' if not set
   mode: mode,
+  target: target,
 
   // entry not required if using `src/index.js` default
   entry: {
@@ -25,11 +28,12 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.s?css$/i,
+        test: /\.(s[ac]|c)ss$/i,
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
           'postcss-loader',
+          // sass-loader should be at the bottom
           'sass-loader',
         ],
       },
