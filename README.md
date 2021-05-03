@@ -32,6 +32,8 @@ npm i sass sass-loader --save-dev
 
 npm i postcss postcss-preset-env postcss-loader --save-dev
 
+npm i clean-webpack-plugin --save-dev
+
 ## React
 
 npm i react react-dom
