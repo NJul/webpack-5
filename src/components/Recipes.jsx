@@ -3,7 +3,7 @@ import { useState } from 'react';
 const elvenShieldRecipe = {
   leatherStrips: 2,
   ironIngot: 1,
-  refinedMoonstone: 4,
+  refinedMoonstone: 3,
 };
 
 const elvenGountRecipe = {

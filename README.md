@@ -39,3 +39,5 @@ npm i clean-webpack-plugin --save-dev
 npm i react react-dom
 
 npm i @babel/preset-react --save-dev
+
+npm i @pmmmwh/react-refresh-webpack-plugin react-refresh --save-dev

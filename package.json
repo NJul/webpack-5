@@ -4,7 +4,7 @@
   "description": "webpack 5",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack serve",
+    "dev": "webpack serve --hot --mode=development",
     "watch": "webpack --watch",
     "clean": "rm -rf ./dist",
     "build": "cross-env NODE_ENV=production webpack",
@@ -12,11 +12,11 @@
     "deploy": "npm run build && gh-pages -d dist"
   },
   "author": "NJul",
-  "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.14.0",
     "@babel/preset-env": "^7.14.0",
     "@babel/preset-react": "^7.13.13",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.4.3",
     "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "*",
     "cross-env": "^7.0.3",
@@ -27,6 +27,7 @@
     "postcss": "^8.2.13",
     "postcss-loader": "^5.2.0",
     "postcss-preset-env": "^6.7.0",
+    "react-refresh": "^0.10.0",
     "sass": "^1.32.12",
     "sass-loader": "^11.0.1",
     "webpack": "^5.36.2",

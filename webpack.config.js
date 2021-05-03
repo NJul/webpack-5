@@ -1,9 +1,12 @@
 const path = require('path');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 let mode = 'development';
+
 let target = 'web';
 
 if (process.env.NODE_ENV === 'production') {
@@ -11,15 +14,16 @@ if (process.env.NODE_ENV === 'production') {
   target = 'browserslist';
 }
 
+const isDevelopment = process.env.NODE_ENV !== 'production';
+
 module.exports = {
   // mode defaults to 'production' if not set
   mode: mode,
   target: target,
 
   // entry not required if using `src/index.js` default
-  entry: {
-    main: path.resolve(__dirname, './src/index.js'),
-  },
+  entry: './src/index.js',
+
   // output not required if using `dist/main.js` default
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -47,12 +51,15 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: require.resolve('babel-loader'),
           options: {
             presets: [
               '@babel/preset-env',
               ['@babel/preset-react', { runtime: 'automatic' }],
             ],
+            plugins: [
+              isDevelopment && require.resolve('react-refresh/babel'),
+            ].filter(Boolean),
           },
         },
       },
@@ -65,18 +72,20 @@ module.exports = {
 
   plugins: [
     new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       template: './src/index.html',
     }),
-    new MiniCssExtractPlugin(),
-  ],
+    isDevelopment && new webpack.HotModuleReplacementPlugin(),
+    isDevelopment && new ReactRefreshWebpackPlugin(),
+  ].filter(Boolean),
+
+  // devtool: 'source-map',
+  devtool: false,
 
   resolve: {
     extensions: ['.js', '.jsx'],
   },
-
-  // devtool: 'source-map',
-  devtool: false,
 
   devServer: {
     contentBase: './dist',
