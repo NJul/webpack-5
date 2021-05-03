@@ -19,7 +19,11 @@ h3 {
   text-align: center;
 }
 
-img {
-  max-width: 100px;
+.img {
+  max-width: 100%;
   height: auto;
+}
+
+ul {
+  list-style-image: url('../images/logo.svg')
 }

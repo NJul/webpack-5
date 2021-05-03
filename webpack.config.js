@@ -23,6 +23,8 @@ module.exports = {
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    // this places all images processed in an image folder
+    assetModuleFilename: 'assets/images/[hash][ext][query]',
   },
 
   module: {
@@ -30,7 +32,10 @@ module.exports = {
       {
         test: /\.(s[ac]|c)ss$/i,
         use: [
-          MiniCssExtractPlugin.loader,
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: { publicPath: '' },
+          },
           'css-loader',
           'postcss-loader',
           // sass-loader should be at the bottom
