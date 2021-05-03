@@ -31,3 +31,9 @@ npm i mini-css-extract-plugin --save-dev
 npm i sass sass-loader --save-dev
 
 npm i postcss postcss-preset-env postcss-loader --save-dev
+
+## React
+
+npm i react react-dom
+
+npm i @babel/preset-react --save-dev
