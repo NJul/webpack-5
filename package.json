@@ -4,7 +4,7 @@
   "description": "webpack 5",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack serve --hot --mode=development",
+    "dev": "cross-env NODE_ENV=development webpack serve --hot",
     "watch": "webpack --watch",
     "clean": "rm -rf ./dist",
     "build": "cross-env NODE_ENV=production webpack",
@@ -39,8 +39,8 @@
   "dependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-uuid": "^1.0.2",
     "semantic-ui-css": "^2.4.1",
-    "semantic-ui-react": "^2.0.3",
-    "uuidv4": "^6.2.7"
+    "semantic-ui-react": "^2.0.3"
   }
 }

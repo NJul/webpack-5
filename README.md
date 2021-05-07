@@ -48,7 +48,7 @@ npm i @pmmmwh/react-refresh-webpack-plugin react-refresh --save-dev
 
 ### Contact App
 
-npm i uuidv4
+npm i react-uuid
 
 npm i semantic-ui-css semantic-ui-react
 
