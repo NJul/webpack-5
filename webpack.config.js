@@ -64,8 +64,19 @@ module.exports = {
         },
       },
       {
-        test: /\.(gif|png|jpg|jpeg|svg)$/i,
-        type: 'asset/resource',
+        test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+        loader: require.resolve('url-loader'),
+        options: {
+          limit: 10000,
+          name: 'assets/images/[name].[hash:8].[ext]',
+        },
+      },
+      {
+        test: [/\.eot$/, /\.ttf$/, /\.svg$/, /\.woff$/, /\.woff2$/],
+        loader: require.resolve('file-loader'),
+        options: {
+          name: 'assets/media/[name].[hash:8].[ext]',
+        },
       },
     ],
   },

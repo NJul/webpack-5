@@ -1,6 +1,10 @@
 # Webpack-5
 
+>  Webpack 5 with Babel and React, gh-pages deploy, css, sass, scss, postcss
+
 > npm i
+
+#
 
 npm init -y
 
@@ -41,3 +45,13 @@ npm i react react-dom
 npm i @babel/preset-react --save-dev
 
 npm i @pmmmwh/react-refresh-webpack-plugin react-refresh --save-dev
+
+### Contact App
+
+npm i uuidv4
+
+npm i semantic-ui-css semantic-ui-react
+
+npm i url-loader --save-dev
+
+npm i file-loader --save-dev
